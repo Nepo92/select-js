@@ -22,7 +22,7 @@ body {
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  height: 80px;
+  height: 100vh;
 }
 
 .select {
@@ -98,4 +98,8 @@ body {
 
 .fas {
   pointer-events: none;
+}
+
+@supports (-webkit-appearance:none){
+
 }

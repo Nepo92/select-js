@@ -24,17 +24,17 @@ export default class select {
   this.select = document.querySelector(selector);
   this.options = options // 1. чтобы опции были доступны в плагине
   this.selectedId = options.selectedId; // Забираем из html selectedId
-  this.#render();
-  this.#setup();
+  this.render();
+  this.setup();
 }
 
-#render() {
+render() {
   const {placeholder, data} = this.options // 2. забираем placeholder, data
   this.select.classList.add('select');
   this.select.innerHTML = getTemplate(placeholder, data, this.selectedId); // 3. передаем placeholder и data в шаблон
 }
 
-#setup() {
+setup() {
   this.clickHandler = this.clickHandler.bind(this);
   this.select.addEventListener('click', this.clickHandler);
   this.angle = this.select.querySelector('.fa-angle-down');
@@ -76,14 +76,14 @@ toggle() {
 
 open() {
   this.select.classList.add('is-opened');
-  this.angle.classList.remove('fa-angle-down');
-  this.angle.classList.add('fa-angle-up');
+  this.angle.classList.remove('fa-angle-up');
+  this.angle.classList.add('fa-angle-down');
 }
 
 close() {
   this.select.classList.remove('is-opened');
-  this.angle.classList.remove('fa-angle-up');
-  this.angle.classList.add('fa-angle-down');
+  this.angle.classList.remove('fa-angle-down');
+  this.angle.classList.add('fa-angle-up');
 }
 
 destroy() {
