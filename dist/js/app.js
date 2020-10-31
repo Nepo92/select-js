@@ -11,7 +11,7 @@ const getTemplate = (placeholder, data, selectedId) => {
   return `
     <div tabindex="0" class="select__input" data-type='input'>
       <span class="select__placeholder" data-type='value'>${text}</span>
-      <i class="fas fa-angle-down"></i>
+      <i class="fas fa-angle-up"></i>
     </div>
     <ul class="select__body">
       ${items.join('')}
@@ -37,7 +37,7 @@ render() {
 setup() {
   this.clickHandler = this.clickHandler.bind(this);
   this.select.addEventListener('click', this.clickHandler);
-  this.angle = this.select.querySelector('.fa-angle-down');
+  this.angle = this.select.querySelector('.fa-angle-up');
   this.value = this.select.querySelector('[data-type="value"]');
   document.body.addEventListener('click', (event) => {
     if (!event.target.classList.contains('select__input') && !event.target.classList.contains('select__item')) {
